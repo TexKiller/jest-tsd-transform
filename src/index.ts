@@ -45,12 +45,12 @@ module.exports = {
       .join(",")}])
     `;
 
-    const featureFile = transform(testFile, {
+    const transformedFile = transform(testFile, {
       filename: filePath,
       presets: [jestPreset],
       root: jestConfig.cwd,
     });
 
-    return featureFile ? featureFile.code : src;
+    return transformedFile ? transformedFile.code : src;
   },
 };
