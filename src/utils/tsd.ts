@@ -27,7 +27,9 @@ export const throwTypingError = async ({
     (d) =>
       d.fileName === testFile &&
       d.line !== undefined &&
-      d.line >= firstLine &&
+      d.line >=
+        firstLine -
+          (d.message === "Unused '@ts-expect-error' directive." ? 1 : 0) &&
       d.line <= lastLine
   );
   const diagnostics = diags.filter(

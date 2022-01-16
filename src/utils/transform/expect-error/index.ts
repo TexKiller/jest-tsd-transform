@@ -28,14 +28,25 @@ export const expectError = (src: string) => {
 
   return expectErrors.length === 0
     ? src
-    : src.replace(
-        new RegExp(
-          `(?<!\\w|\\d|\\.(?:[ ]*|))(?<=[ ]*|)(${expectErrors.join(
-            "|"
-          )})(\\s*(?:\\<[^\\(]+\\>|)\\s*\\(\\s*\\/\\/[ ]*)@ts-expect-error([^\\n]*\\n)`,
-          "g"
-        ),
-        (_, expect, after, spaces) =>
-          `${expect}${after}@ts-ignore      ${spaces}`
-      );
+    : src
+        .replace(
+          new RegExp(
+            `(?<!\\w|\\d|\\.(?:[ ]*|))(?<=[ ]*|)(${expectErrors.join(
+              "|"
+            )})(\\s*(?:\\<[^\\(]+\\>|)\\s*\\(\\s*\\/\\/[ ]*)@ts-expect-error([^\\n]*\\n)`,
+            "g"
+          ),
+          (_, expect, after, spaces) =>
+            `${expect}${after}@ts-ignore      ${spaces}`
+        )
+        .replace(
+          new RegExp(
+            `(\\s*\\/\\/[ ]*)@ts-expect-error([^\\n]*\\n[^\\n]*)(?<!\\w|\\d|\\.(?:[ ]*|))(${expectErrors.join(
+              "|"
+            )})(\\s*(?:\\<[^\\(]+\\>|)\\s*\\()`,
+            "g"
+          ),
+          (_, comment, spaces, expect, after) =>
+            `${comment}@ts-ignore      ${spaces}${expect}${after}`
+        );
 };
