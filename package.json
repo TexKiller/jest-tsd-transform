@@ -1,6 +1,6 @@
 {
   "name": "jest-tsd-transform",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Jest transform for running tsd tests.",
   "main": "dist/index.js",
   "scripts": {
