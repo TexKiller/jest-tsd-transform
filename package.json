@@ -25,9 +25,7 @@
     "typescript": "^4.4.4"
   },
   "dependencies": {
-    "@babel/core": "^7.13.15",
     "@jest/create-cache-key-function": "^27.4.2",
-    "babel-preset-jest": ">=26.0.0",
     "tsd": ">=0.10.0"
   },
   "peerDependencies": {
