@@ -1,4 +1,4 @@
-import type { Range } from "./types";
+import type { Range } from "../types";
 import fs from "fs";
 
 export const getRange = (e: Error): Range => {

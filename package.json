@@ -5,7 +5,8 @@
   "main": "dist/index.js",
   "scripts": {
     "prepublishOnly": "rimraf dist && tsc",
-    "np": "git remote rm origin && (np --publish false --cleanup false || echo Error on np) && git remote add origin git@github.com:TexKiller/jest-tsd-transform.git && git push --follow-tags --set-upstream origin master"
+    "np": "git remote rm origin && (np --publish false --cleanup false || echo Error on np) && git remote add origin git@github.com:TexKiller/jest-tsd-transform.git && git push --follow-tags --set-upstream origin master",
+    "test": "jest"
   },
   "repository": {
     "type": "git",
