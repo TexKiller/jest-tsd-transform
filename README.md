@@ -28,49 +28,12 @@ Using yarn:
 yarn add jest-tsd-transform --dev
 ```
 
-### Executing TypeScript in Jest:
-
-[Jest](https://jestjs.io/) can't run TypeScript code directly. For that we need to turn the code into JavaScript, which is what [ts-jest](https://github.com/kulshekhar/ts-jest) does, so let's install it:
-
-Using npm:
-
-```sh
-npm install ts-jest@^27.1.3 --save-dev
-```
-
-Using yarn:
-
-```sh
-yarn add ts-jest@^27.1.3 --dev
-```
-
-### Chaining transforms:
-
-Since we can't apply a transform to the result of another transform, we need to install something like [jest-chain-transform](https://github.com/anc95/jest-chain-transform) to connect the transforms:
-
-Using npm:
-
-```sh
-npm install jest-chain-transform --save-dev
-```
-
-Using yarn:
-
-```sh
-yarn add jest-chain-transform --dev
-```
-
 ### Add the following to your Jest configuration:
 
 ```javascript
   moduleFileExtensions: ["js", "ts", "json"],
   transform: {
-    "^.*(\\.|\\/)(test\\.ts)$": [
-      "jest-chain-transform",
-      {
-        transformers: ["jest-tsd-transform", "ts-jest"],
-      },
-    ],
+    "^.*(\\.|\\/)(test\\.ts)$": "jest-tsd-transform",
   },
   testMatch: ["<rootDir>/**/*test.ts"],
 ```
