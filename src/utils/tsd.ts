@@ -11,7 +11,7 @@ const getDiagnostics = async (testFile: string) => {
     _diagnostics[testFile] = await tsd({
       cwd,
       typingsFile: "dist/dummy.d.ts",
-      testFiles: [path.relative(cwd, testFile)],
+      testFiles: [path.relative(cwd, testFile).replace(/\\/g, "/")],
     });
   }
   return _diagnostics[testFile];
