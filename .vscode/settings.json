@@ -1,9 +1,9 @@
 {
   "editor.codeActionsOnSave": {
-    "source.fixAll": true
+    "source.fixAll": "explicit"
   },
   "editor.formatOnSave": true,
   "typescript.tsdk": "node_modules/typescript/lib",
-  "[typescript]": {"editor.defaultFormatter": "esbenp.prettier-vscode"},
-  "[json]": {"editor.defaultFormatter": "esbenp.prettier-vscode"}
+  "[typescript]": { "editor.defaultFormatter": "esbenp.prettier-vscode" },
+  "[json]": { "editor.defaultFormatter": "esbenp.prettier-vscode" }
 }

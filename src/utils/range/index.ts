@@ -8,7 +8,7 @@ export const getRange = (e: Error): Range => {
       .filter((l) => l.trim().startsWith("at "))[1]
       .trim() || "";
   const i1 = s.indexOf("(");
-  const i2 = s.indexOf(":", i1);
+  const i2 = s.indexOf(":", i1 + "at C:\\".length);
   const i3 = s.indexOf(":", i2 + 1);
   const testFile = s
     .substring(i1 > -1 ? i1 + 1 : "at ".length, i2)
